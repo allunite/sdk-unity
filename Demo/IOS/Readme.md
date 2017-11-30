@@ -41,6 +41,6 @@ For more details see there: https://developer.apple.com/library/content/qa/qa149
       <key>NSLocationWhenInUseUsageDescription</key>
       <string>description to user - location when usage</string>
       <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>IOS 11+. description to user - location when always and when usage</string>
+      <string>IOS 11+. description to user - location when always and when usage</string>
 ```
-5. Rebuild and run Unity demo app
+5. Rebuild and run Unity demo app.
