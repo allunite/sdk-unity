@@ -49,6 +49,8 @@ public class AlluniteSdk : MonoBehaviour {
 
 	public void onClickInitSdk(){
 
+		#if UNITY_IPHONE
+
 		AllUnite_enableDebugLog();
 
 		string accountId = "UnityDemo"; // YOUR_ACCOUNT_ID
@@ -59,9 +61,11 @@ public class AlluniteSdk : MonoBehaviour {
 		} else {
 			print ("Init SDK. Failed network request");
 		}
+		#endif
 	}
 
 	public void onClickInitSdkAsync(){
+		#if UNITY_IPHONE
 		Debug.Log("AllUnite_InitSDK_Async");
 
 		AllUnite_enableDebugLog();
@@ -69,13 +73,17 @@ public class AlluniteSdk : MonoBehaviour {
 		string accountId = "UnityDemo"; // YOUR_ACCOUNT_ID
 		string accountKey = "2414863EEE4C41EAAE505983A9F2CD23"; // YOUR_ACCOUNT_KEY
 		AllUnite_InitSDK_Async (accountId, accountKey, asyncInitResult);
+		#endif
 	}
 
 	public void onClickRequestAutorizationStatus() {
+		#if UNITY_IPHONE
 		AllUnite_RequestAlwaysAuthorization();
+		#endif
 	}
 
 	public void onClickBindDevice(){
+		#if UNITY_IPHONE
 		AllUnite_enableDebugLog();
 		if (!AllUnite_isDeviceBounded ()) {
 			Debug.Log("AllUnite_BindDevice");
@@ -83,42 +91,52 @@ public class AlluniteSdk : MonoBehaviour {
 		} else {
 			Debug.Log ("Device already bounded");
 		}
+		#endif
 	}
 
 	public void onClickTrack(){
+		#if UNITY_IPHONE
 		Debug.Log("AllUnite_Track");
 
 		string actionCategory = "track";
 		string actionId = "test";
 
 		AllUnite_Track (actionCategory, actionId);
+		#endif
 	}
 
 	public void onClickStartTrack(){
-		
+		#if UNITY_IPHONE
 		if (!AllUnite_isBeaconTracking ()) {
 			Debug.Log("AllUnite_SendBeaconTrack");
 			AllUnite_SendBeaconTrack ();
 		} else {
 			Debug.Log("Device already tracking beacon");
 		}
+		#endif
 	}
 
 	public void onClickStopTrack(){
+		#if UNITY_IPHONE
 		Debug.Log("AllUnite_StopBeaconTrack");
 		AllUnite_StopBeaconTrack();
+		#endif
 	}
 
 	public void onClickBindFbProfile(){
+		#if UNITY_IPHONE
 		Debug.Log("AllUnite_StopBeaconTrack");
 		string profileToken = "ADlwLwlsdj42j";
 		string profileJsonData = "{\"id\": \"12345678\", \"birthday\": \"1/1/1950\", \"first_name\": \"Chris\", \"gender\": \"male\", \"last_name\": \"Colm\", \"link\": \"http://www.facebook.com/12345678\", \"location\": { \"id\": \"110843418940484\", \"name\": \"Seattle, Washington\" }, \"locale\": \"en_US\", \"name\": \"Chris Colm\", \"timezone\": -8, \"updated_time\": \"2010-01-01T16:40:43+0000\", \"verified\": true}"; 
 		AllUnite_BindFbProfile (profileToken, profileJsonData);
+		#endif
 	}
 
 	public void onEnableDebugLog(){
+		#if UNITY_IPHONE
 		Debug.Log("AllUnite_enableDebugLog");
 		AllUnite_enableDebugLog();
+		#endif
 	}
 
 }
