@@ -1,7 +1,23 @@
-1. Required
-```-ObjC```
+Unity 2017.02.of3
 
-2. Required
+Demo account:
+```
+account_id = UnityDemo
+account_key = 2414863EEE4C41EAAE505983A9F2CD23
+allunite_scheme = allunite-unity-demo
+```
+
+1. Open unity demo project
+
+2. Build IOS platform
+
+3. Open generated Unity XCode project and add to build settings:
+
+Add the value of the Other Linker Flags build setting to the -ObjC to your project
+
+For more details see there: https://developer.apple.com/library/content/qa/qa1490/_index.html
+
+4. Open generated Unity XCode project and add to info.plist settings:
 ```
       <key>CFBundleURLTypes</key>
       <array>
@@ -27,3 +43,4 @@
       <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>IOS 11+. description to user - location when always and when usage</string>
 ```
+5. Rebuild and run Unity demo app
