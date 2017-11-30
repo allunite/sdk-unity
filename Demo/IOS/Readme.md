@@ -20,4 +20,6 @@
       <string>description to user - location always usage</string>
       <key>NSLocationWhenInUseUsageDescription</key>
       <string>description to user - location when usage</string>
+      <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>IOS 11+. description to user - location when always and when usage</string>
 ```
