@@ -1,4 +1,5 @@
 Unity 2017.02.of3
+===============================
 
 Demo account:
 ```
@@ -11,13 +12,13 @@ allunite_scheme = allunite-unity-demo
 
 ### 2. Build IOS platform
 
-### 3. Open generated Unity XCode project and add to build settings:
+### 3. (Required) Open generated Unity XCode project and add to build settings:
 
 Add the value of the Other Linker Flags build setting to the -ObjC to your project
 
 For more details see there: https://developer.apple.com/library/content/qa/qa1490/_index.html
 
-### 4. Open generated Unity XCode project and add to info.plist settings:
+### 4. (Required) Open generated Unity XCode project and add to info.plist settings:
 ```
       <key>CFBundleURLTypes</key>
       <array>
