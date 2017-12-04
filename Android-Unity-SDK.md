@@ -4,7 +4,9 @@ Android Unity SDK - Quick Start Guide
 [![](https://jitpack.io/v/allunite/mobile-unity-sdk.svg)](https://jitpack.io/#allunite/mobile-unity-sdk)
 
 ### To use AllUniteSdk:
-1. Add files to Assets/Plugins/Android/
+1. Enable Gradle build system as described in Unity Documentation. https://docs.unity3d.com/Manual/android-gradle-overview.html
+
+2. Add files to Assets/Plugins/Android/
 
 mainTemplate.gradle:
 ```gradle
@@ -130,7 +132,6 @@ AndroidManifest.xml using your AllUnite application credentials (AllUniteId, All
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
@@ -139,7 +140,7 @@ AndroidManifest.xml using your AllUnite application credentials (AllUniteId, All
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 </manifest>
 ```
-2. Call library methods in Unity project:
+3. Call library methods in Unity project:
 ```csharp
     public void useAllUniteSdk()
     {
