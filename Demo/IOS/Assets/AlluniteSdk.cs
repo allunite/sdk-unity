@@ -31,7 +31,7 @@ public class AlluniteSdk : MonoBehaviour {
 		[DllImport("__Internal")]
 		private static extern void AllUnite_BindFbProfile(string profileToken, string profileData);
 		[DllImport("__Internal")]
-		private static extern void AllUnite_RequestAlwaysAuthorization();
+		private static extern void AllUnite_RequestAlwaysAuthorization(Callback callback);
 
 
 		public delegate void Callback(int error);
@@ -43,6 +43,16 @@ public class AlluniteSdk : MonoBehaviour {
 				print ("Init SDK. Success");
 			} else {
 				print ("Init SDK. Failed network request");
+			}
+		}
+
+		[MonoPInvokeCallback(typeof(Callback))]
+		private static void authorizationPermissionChangedCallback(int res) {
+			Debug.Log("Autorization. User changed the autorization status");
+			if (res == 0) {
+				print ("Autorization. App have permission use Location Service");
+			} else {
+				print ("Autorization. App don't have permission use Location Service");
 			}
 		}
 	#endif
@@ -78,7 +88,7 @@ public class AlluniteSdk : MonoBehaviour {
 
 	public void onClickRequestAutorizationStatus() {
 		#if UNITY_IPHONE
-		AllUnite_RequestAlwaysAuthorization();
+		AllUnite_RequestAlwaysAuthorization(authorizationPermissionChangedCallback);
 		#endif
 	}
 
