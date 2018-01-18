@@ -36,7 +36,7 @@ apply plugin: 'com.android.application'
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile 'com.github.allunite:mobile-unity-sdk:1.2.16'
+    compile 'com.github.allunite:mobile-unity-sdk:1.2.18'
     compile 'com.bluecats:bluecats-android-sdk:2.0.7'
 
 **DEPS**}
@@ -132,8 +132,6 @@ AndroidManifest.xml using your AllUnite application credentials (AllUniteId, All
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
