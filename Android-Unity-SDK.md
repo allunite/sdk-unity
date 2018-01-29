@@ -169,17 +169,37 @@ Tracking differs from other calls and must be executed in UI thread:
 			}));
 ```
 
+### Permission flow
+Track when user accept location permission using AllUniteSdk.sendLocationPermissionsGranted(Context) at Runtime Permissions callback.
+
+For handling Android Runtime Permissions you can use any 3-rd party libraries like https://github.com/sanukin39/UniAndroidPermission.
+```csharp
+public void RequestPermission()
+{
+    UniAndroidPermission.RequestPermission(AndroidPermission.ACCESS_COARSE_LOCATION, OnAllow, OnDeny, OnDenyAndNeverAskAgain);
+}
+
+private void OnAllow()
+{
+    AndroidJavaObject allUniteSdk = new AndroidJavaObject("com.allunite.sdk.AllUniteSdk");
+    AndroidJavaObject currentActivity = getCurrentActivity();
+
+    allUniteSdk.CallStatic("sendLocationPermissionsGranted", currentActivity);}
+
+```
+
 ### Track current device status
 1. Add FCM services to your app as described by Google https://firebase.google.com/docs/cloud-messaging/unity/client
 2. In callback call method AllUniteSdk.trackDeviceStatus(context) inside FCM callback:
 ```csharp
 public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e) {
-	// your code for parsing messages
-	...
-	AndroidJavaObject allUniteSdk = new AndroidJavaObject("com.allunite.sdk.AllUniteSdk");
-        AndroidJavaObject currentActivity = getCurrentActivity();
 
-        allUniteSdk.CallStatic("trackDeviceStatus", currentActivity);
+    // your code for parsing messages
+    ...
+    AndroidJavaObject allUniteSdk = new AndroidJavaObject("com.allunite.sdk.AllUniteSdk");
+    AndroidJavaObject currentActivity = getCurrentActivity();
+
+    allUniteSdk.CallStatic("trackDeviceStatus", currentActivity);
 }
 ```
 Enjoy!
