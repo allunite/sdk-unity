@@ -145,7 +145,7 @@ AndroidManifest.xml using your AllUnite application credentials (AllUniteId, All
         AndroidJavaObject allUniteSdk = new AndroidJavaObject("com.allunite.sdk.AllUniteSdk");
         AndroidJavaObject currentActivity = getCurrentActivity();
 
-        allUniteSdk.CallStatic("init");
+        allUniteSdk.CallStatic("init", currentActivity);
         allUniteSdk.CallStatic ("bindDevice", currentActivity, "android-app://<your_app_package_name>");
     }
 
@@ -169,4 +169,17 @@ Tracking differs from other calls and must be executed in UI thread:
 			}));
 ```
 
+### Track current device status
+1. Add FCM services to your app as described by Google https://firebase.google.com/docs/cloud-messaging/unity/client
+2. In callback call method AllUniteSdk.trackDeviceStatus(context) inside FCM callback:
+```csharp
+public void OnMessageReceived(object sender, Firebase.Messaging.MessageReceivedEventArgs e) {
+	// your code for parsing messages
+	...
+	AndroidJavaObject allUniteSdk = new AndroidJavaObject("com.allunite.sdk.AllUniteSdk");
+        AndroidJavaObject currentActivity = getCurrentActivity();
+
+        allUniteSdk.CallStatic("trackDeviceStatus", currentActivity);
+}
+```
 Enjoy!
