@@ -146,7 +146,6 @@ AndroidManifest.xml using your AllUnite application credentials (AllUniteId, All
         AndroidJavaObject currentActivity = getCurrentActivity();
 
         allUniteSdk.CallStatic("init", currentActivity);
-        allUniteSdk.CallStatic ("bindDevice", currentActivity, "android-app://<your_app_package_name>");
     }
 
     private AndroidJavaObject getCurrentActivity()
